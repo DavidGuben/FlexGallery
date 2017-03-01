@@ -38,19 +38,25 @@
     </div>
   </div>
   <script>
+    // constant that selects all objects with the class panel.
     const panels = document.querySelectorAll('.panel');
-
+    // function that toggles the clss open.
     function toggleOpen() {
       this.classList.toggle('open');
     }
-
+    // function with an if statement containing an (e)vent parameter.
+    // The statement checks if the propertyName of the object includes: flex.
+    // If the statement is true it toggles the class open-active.
     function toggleActive(e) {
       if(e.propertyName.includes('flex')) {
         this.classList.toggle('open-active');
       }
     }
-
+    // forEach statement that adds a click event listener wirh the paramaters 'click' and toggleOpen.
+    // Every panel, that's clicked, will trigger the toggleOpen function.
     panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    // forEach statement that adds an event listener with the paramaters 'transitionend' and toggleActive.
+    // Every panel, when the transition ends, will trigger the toggleActive function.
     panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
   </script>
 </body>
